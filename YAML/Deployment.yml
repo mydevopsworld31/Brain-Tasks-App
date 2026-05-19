@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brain-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: brain-app
+  template:
+    metadata:
+      labels:
+        app: brain-app
+    spec:
+      containers:
+      - name: brain-app
+        image: mydockerimage31/brain-app:v3
+        ports:
+        - containerPort: 80
